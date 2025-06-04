@@ -19,6 +19,4 @@ def home():
 if __name__ == '__main__':
     # Render에서는 PORT 환경변수를 사용
     port = int(os.environ.get('PORT', 8080))
-    print("🚀 Flask 서버를 시작합니다...")
-    print(f"📱 포트 {port}에서 실행 중...")
     app.run(host='0.0.0.0', port=port, debug=False)
