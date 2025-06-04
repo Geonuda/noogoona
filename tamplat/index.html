@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김건우의 개인 홈페이지</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 영역 -->
+        <header class="header">
+            <h1 class="main-title">안녕하십니까. 김건우입니다.</h1>
+            <p class="subtitle">컴퓨터공학과 4학년 재학중</p>
+        </header>
+
+        <!-- 프로필 사진 영역 -->
+        <div class="profile-section">
+            <img src="{{ url_for('static', filename='my.JPG') }}" alt="김건우 프로필 사진" class="profile-image">
+        </div>
+
+        <!-- 개인 소개 테이블 -->
+        <div class="intro-section">
+            <h2 class="section-title">개인 소개</h2>
+            <table class="info-table">
+                <tr class="table-header">
+                    <th>항목</th>
+                    <th>내용</th>
+                </tr>
+                <tr>
+                    <td class="label">이름</td>
+                    <td>{{ profile.name if profile else '김건우' }}</td>
+                </tr>
+                <tr class="alternate-row">
+                    <td class="label">나이</td>
+                    <td>{{ profile.age if profile else '25세' }}</td>
+                </tr>
+                <tr>
+                    <td class="label">전공</td>
+                    <td class="highlight-text">{{ profile.major if profile else '컴퓨터공학과' }}</td>
+                </tr>
+                <tr class="alternate-row">
+                    <td class="label">학년</td>
+                    <td>{{ profile.grade if profile else '4학년' }}</td>
+                </tr>
+                <tr>
+                    <td class="label">목표</td>
+                    <td class="goal-text">{{ profile.goal if profile else '건강하게 살기!' }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 검색엔진 링크 -->
+        <footer class="footer">
+            <h3 class="footer-title">자주 사용하는 검색엔진</h3>
+            <div class="search-engines">
+                <a href="https://www.naver.com" target="_blank" class="search-link">
+                    <img src="{{ url_for('static', filename='naver.png') }}" alt="네이버" class="search-logo naver-logo">
+                    <p class="search-name">네이버</p>
+                </a>
+                <a href="https://www.google.com" target="_blank" class="search-link">
+                    <img src="{{ url_for('static', filename='google.png') }}" alt="구글" class="search-logo google-logo">
+                    <p class="search-name">구글</p>
+                </a>
+            </div>
+            <p class="footer-note">클릭하면 해당 검색엔진으로 이동합니다</p>
+        </footer>
+
+        <!-- 추천 노래 섹션 -->
+        <div class="music-section">
+            <h3 class="music-title">추천 노래</h3>
+            <div class="youtube-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/C9E2XBOW2a8" 
+                    title="추천 노래" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    class="youtube-video">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
